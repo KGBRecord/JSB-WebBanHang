@@ -74,11 +74,11 @@ const headerLinks: HeaderLink[] = [
     label: 'Thông báo',
     icon: Bell,
   },
-  {
-    link: '/admin/chat',
-    label: 'Tin nhắn',
-    icon: Messages,
-  },
+  // {
+  //   link: '/admin/chat',
+  //   label: 'Tin nhắn',
+  //   icon: Messages,
+  // },
   {
     link: '/',
     label: 'Website',

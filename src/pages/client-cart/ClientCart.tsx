@@ -218,7 +218,7 @@ function ClientCart() {
               </Stack>
             </Card>
 
-            <Card radius="md" shadow="sm" px="lg" pt="md" pb="lg">
+            {/* <Card radius="md" shadow="sm" px="lg" pt="md" pb="lg">
               <Stack spacing="xs">
                 <Text weight={500} color="dimmed">Hình thức giao hàng</Text>
                 <RadioGroup value="ghn" orientation="vertical" size="sm">
@@ -257,7 +257,7 @@ function ClientCart() {
                   })}
                 </RadioGroup>
               </Stack>
-            </Card>
+            </Card> */}
 
             <Card radius="md" shadow="sm" p="lg">
               <Stack spacing="xs">
@@ -489,38 +489,9 @@ function ConfirmedOrder() {
     isError,
   } = useCreateClientOrderApi();
 
-  const [checkoutPaypalStatus, setCheckoutPaypalStatus] = useState<'none' | 'success' | 'cancel'>('none');
-
   const { currentPaymentMethod } = useAuthStore();
 
   let contentFragment;
-
-  useEffect(() => {
-    if (checkoutPaypalStatus === 'none') {
-      const request: ClientSimpleOrderRequest = { paymentMethodType: currentPaymentMethod };
-      createClientOrder(request);
-    }
-  }, [checkoutPaypalStatus, createClientOrder, currentPaymentMethod]);
-
-  const { newNotifications } = useClientSiteStore();
-
-  useEffect(() => {
-    if (newNotifications.length > 0 && clientConfirmedOrderResponse) {
-      const lastNotification = newNotifications[newNotifications.length - 1];
-      if (lastNotification.message.includes(clientConfirmedOrderResponse.orderCode)) {
-        if (lastNotification.type === NotificationType.CHECKOUT_PAYPAL_SUCCESS) {
-          setCheckoutPaypalStatus('success');
-        }
-        if (lastNotification.type === NotificationType.CHECKOUT_PAYPAL_CANCEL) {
-          setCheckoutPaypalStatus('cancel');
-        }
-      }
-    }
-  }, [clientConfirmedOrderResponse, newNotifications, newNotifications.length]);
-
-  const handlePaypalCheckoutButton = (checkoutLink: string) => {
-    window.open(checkoutLink, 'mywin', 'width=500,height=800');
-  };
 
   if (isError) {
     contentFragment = (
@@ -561,65 +532,6 @@ function ConfirmedOrder() {
     );
   }
 
-  if (clientConfirmedOrderResponse && clientConfirmedOrderResponse.orderPaymentMethodType === PaymentMethodType.PAYPAL) {
-    contentFragment = (
-      <Stack justify="space-between" sx={{ height: '100%' }}>
-        <Stack align="center" sx={{ alignItems: 'center', color: theme.colors.teal[6] }}>
-          <Check size={100} strokeWidth={1}/>
-          <Text sx={{ textAlign: 'center' }}>
-            <span>Đơn hàng </span>
-            <Text weight={500} component="span">
-              {clientConfirmedOrderResponse.orderCode}
-            </Text>
-            <span> đã được tạo!</span>
-          </Text>
-          <Text color="dimmed" size="sm">Hoàn tất thanh toán PayPal bằng cách bấm nút dưới</Text>
-        </Stack>
-        {checkoutPaypalStatus === 'none'
-          ? (
-            <Button
-              fullWidth
-              mt="md"
-              onClick={() => handlePaypalCheckoutButton(clientConfirmedOrderResponse.orderPaypalCheckoutLink || '')}
-            >
-              Thanh toán PayPal
-            </Button>
-          )
-          : (checkoutPaypalStatus === 'success')
-            ? (
-              <Button
-                fullWidth
-                mt="md"
-                color="teal"
-                leftIcon={<Check/>}
-                onClick={modals.closeAll}
-              >
-                Đã thanh toán thành công
-              </Button>
-            )
-            : (
-              <Stack spacing="sm">
-                <Button
-                  fullWidth
-                  mt="md"
-                  variant="outline"
-                  color="pink"
-                  leftIcon={<X size={16}/>}
-                  onClick={modals.closeAll}
-                >
-                  Đã hủy thanh toán. Đóng hộp thoại này.
-                </Button>
-                <Button
-                  fullWidth
-                  onClick={() => handlePaypalCheckoutButton(clientConfirmedOrderResponse.orderPaypalCheckoutLink || '')}
-                >
-                  Thanh toán PayPal lần nữa
-                </Button>
-              </Stack>
-            )}
-      </Stack>
-    );
-  }
 
   return (
     <Stack sx={{ minHeight: isLoading ? 200 : 'unset' }}>

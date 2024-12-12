@@ -175,13 +175,13 @@ function App() {
                       <ClientOrderDetail/>
                     </ProtectedRoute>
                   )}/>
-                  <Route path="/user/chat" element={(
+                  {/* <Route path="/user/chat" element={(
                     <ProtectedRoute>
                       <StompSessionProvider url={ApplicationConstants.WEBSOCKET_PATH}>
                         <ClientChat/>
                       </StompSessionProvider>
                     </ProtectedRoute>
-                  )}/>
+                  )}/> */}
                   <Route path="/user/reward" element={(
                     <ProtectedRoute>
                       <ClientReward/>
@@ -353,11 +353,11 @@ function App() {
                   <Route path={ManagerPath.PROMOTION + '/create'} element={<PromotionCreate/>}/>
                   <Route path={ManagerPath.PROMOTION + '/update/:id'} element={<PromotionUpdate/>}/>
                   {/* CHAT */}
-                  <Route path={ManagerPath.CHAT} element={
+                  {/* <Route path={ManagerPath.CHAT} element={
                     <StompSessionProvider url={ApplicationConstants.WEBSOCKET_PATH}>
                       <ChatDashboard/>
                     </StompSessionProvider>
-                  }/>
+                  }/> */}
                   {/* NOTIFICATION */}
                   <Route path={ManagerPath.NOTIFICATION} element={<AdminNotification/>}/>
                   {/* ACCOUNT */}

@@ -12,5 +12,4 @@ export interface PaymentMethodRequest {
 
 export enum PaymentMethodType {
   CASH = 'CASH',
-  PAYPAL = 'PAYPAL'
 }

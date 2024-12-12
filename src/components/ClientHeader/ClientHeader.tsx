@@ -296,20 +296,20 @@ function ClientHeader() {
                     >
                       Điểm thưởng
                     </Menu.Item>
-                    {/* <Menu.Item
+                    <Menu.Item
                       icon={<Alarm size={14} />}
                       component={Link}
                       to="/user/preorder"
                     >
                       Đặt trước sản phẩm
-                    </Menu.Item> */}
-                    <Menu.Item
+                    </Menu.Item>
+                    {/* <Menu.Item
                       icon={<MessageCircle size={14} />}
                       component={Link}
                       to="/user/chat"
                     >
                       Yêu cầu tư vấn
-                    </Menu.Item>
+                    </Menu.Item> */}
                     <Menu.Item
                       color="pink"
                       icon={<Logout size={14} />}

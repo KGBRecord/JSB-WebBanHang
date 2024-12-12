@@ -52,7 +52,7 @@ class ManagerPath {
   static PAYMENT_METHOD = '/admin/payment-method';
   static PROMOTION = '/admin/promotion';
 
-  static CHAT = '/admin/chat';
+  // static CHAT = '/admin/chat';
   static NOTIFICATION = '/admin/notification';
   static ACCOUNT = '/admin/account';
 }
