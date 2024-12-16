@@ -218,7 +218,7 @@ function ClientCart() {
               </Stack>
             </Card>
 
-            {/* <Card radius="md" shadow="sm" px="lg" pt="md" pb="lg">
+            <Card radius="md" shadow="sm" px="lg" pt="md" pb="lg">
               <Stack spacing="xs">
                 <Text weight={500} color="dimmed">Hình thức giao hàng</Text>
                 <RadioGroup value="ghn" orientation="vertical" size="sm">
@@ -257,7 +257,7 @@ function ClientCart() {
                   })}
                 </RadioGroup>
               </Stack>
-            </Card> */}
+            </Card>
 
             <Card radius="md" shadow="sm" p="lg">
               <Stack spacing="xs">
@@ -481,7 +481,6 @@ function CartItemTableRow({ cartItem }: { cartItem: ClientCartVariantResponse })
 function ConfirmedOrder() {
   const theme = useMantineTheme();
   const modals = useModals();
-
   const {
     mutate: createClientOrder,
     data: clientConfirmedOrderResponse,
@@ -492,6 +491,13 @@ function ConfirmedOrder() {
   const { currentPaymentMethod } = useAuthStore();
 
   let contentFragment;
+
+  useEffect(() => {
+    if (!clientConfirmedOrderResponse) {
+      const request: ClientSimpleOrderRequest = { paymentMethodType: currentPaymentMethod };
+      createClientOrder(request);
+    }
+  }, [clientConfirmedOrderResponse, createClientOrder, currentPaymentMethod]);
 
   if (isError) {
     contentFragment = (
