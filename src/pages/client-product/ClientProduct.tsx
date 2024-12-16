@@ -11,7 +11,6 @@ import { ClientError } from 'components';
 import ClientProductIntro from 'pages/client-product/ClientProductIntro';
 import ClientProductSpecification from 'pages/client-product/ClientProductSpecification';
 import ClientProductDescription from 'pages/client-product/ClientProductDescription';
-import ClientProductReviews from 'pages/client-product/ClientProductReviews';
 import ClientProductRelatedProducts from 'pages/client-product/ClientProductRelatedProducts';
 
 function ClientProduct() {
@@ -40,8 +39,6 @@ function ClientProduct() {
           {product.productSpecifications && <ClientProductSpecification product={product}/>}
 
           {product.productDescription && <ClientProductDescription product={product}/>}
-
-          <ClientProductReviews productSlug={slug as string}/>
 
           {product.productRelatedProducts.length > 0 && <ClientProductRelatedProducts product={product}/>}
         </Stack>

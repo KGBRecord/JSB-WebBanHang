@@ -228,12 +228,6 @@ const navbarLinks: NavbarLink[] = [
     childLinks: [],
   },
   {
-    link: '/admin/review',
-    label: 'Đánh giá',
-    icon: Message,
-    childLinks: [],
-  },
-  {
     link: '/admin/reward-strategy',
     label: 'Điểm thưởng',
     icon: Award,

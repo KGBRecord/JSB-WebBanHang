@@ -44,8 +44,6 @@ class ManagerPath {
 
   static WAYBILL = '/admin/waybill';
 
-  static REVIEW = '/admin/review';
-
   static REWARD_STRATEGY = '/admin/reward-strategy';
 
   static VOUCHER = '/admin/voucher';

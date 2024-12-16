@@ -64,8 +64,6 @@ import ClientSettingPassword from 'pages/client-setting-password';
 import ClientWishlist from 'pages/client-wishlist';
 import ClientPreorder from 'pages/client-preorder';
 import ClientNotification from 'pages/client-notification';
-import ClientReview from 'pages/client-review';
-import ReviewManage from 'pages/review';
 import VoucherManage from 'pages/voucher';
 import PaymentMethodManage from 'pages/payment-method';
 import PromotionManage, { PromotionCreate, PromotionUpdate } from 'pages/promotion';
@@ -74,12 +72,8 @@ import ClientCart from 'pages/client-cart';
 import WaybillManage, { WaybillCreate, WaybillUpdate } from 'pages/waybill';
 import ClientOrder from 'pages/client-order';
 import ClientOrderDetail from 'pages/client-order-detail';
-import ClientChat from 'pages/client-chat';
 import { StompSessionProvider } from 'react-stomp-hooks';
 import ApplicationConstants from 'constants/ApplicationConstants';
-import ChatDashboard from 'pages/chat';
-import ClientPaymentSuccess from 'pages/client-payment-success';
-import ClientPaymentCancel from 'pages/client-payment-cancel';
 import AdminNotification from 'pages/admin-notification';
 import AdminAccount from 'pages/admin-account';
 import RewardManage from 'pages/reward-strategy';
@@ -152,11 +146,6 @@ function App() {
                   <Route path="/user/notification" element={(
                     <ProtectedRoute>
                       <ClientNotification/>
-                    </ProtectedRoute>
-                  )}/>
-                  <Route path="/user/review" element={(
-                    <ProtectedRoute>
-                      <ClientReview/>
                     </ProtectedRoute>
                   )}/>
                   <Route path="/product/:slug" element={<ClientProduct/>}/>
@@ -342,8 +331,6 @@ function App() {
                   <Route path={ManagerPath.WAYBILL} element={<WaybillManage/>}/>
                   <Route path={ManagerPath.WAYBILL + '/create'} element={<WaybillCreate/>}/>
                   <Route path={ManagerPath.WAYBILL + '/update/:id'} element={<WaybillUpdate/>}/>
-                  {/* REVIEW */}
-                  <Route path={ManagerPath.REVIEW} element={<ReviewManage/>}/>
                   {/* VOUCHER */}
                   <Route path={ManagerPath.VOUCHER} element={<VoucherManage/>}/>
                   {/* PAYMENT_METHOD */}
@@ -365,8 +352,6 @@ function App() {
                   {/* REWARD */}
                   <Route path={ManagerPath.REWARD_STRATEGY} element={<RewardManage/>}/>
                 </Route>
-                <Route path="/payment/success" element={<ClientPaymentSuccess/>}/>
-                <Route path="/payment/cancel" element={<ClientPaymentCancel/>}/>
               </Routes>
             </ModalsProvider>
           </NotificationsProvider>

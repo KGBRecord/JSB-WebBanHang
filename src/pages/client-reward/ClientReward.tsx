@@ -33,11 +33,7 @@ const rewardLogInfoMap: Record<RewardType, RewardLogInfo> = {
   [RewardType.SUCCESS_ORDER]: {
     icon: FileBarcode,
     color: 'blue',
-  },
-  [RewardType.ADD_REVIEW]: {
-    icon: Star,
-    color: 'yellow',
-  },
+  }
 };
 
 function ClientReward() {

@@ -57,8 +57,6 @@ class ResourceURL {
 
   static WAYBILL = apiPath + '/waybills';
 
-  static REVIEW = apiPath + '/reviews';
-
   static REWARD_STRATEGY = apiPath + '/reward-strategies';
 
   static VOUCHER = apiPath + '/vouchers';
@@ -82,8 +80,6 @@ class ResourceURL {
   static CLIENT_USER_PASSWORD_SETTING = clientApiPath + '/users/password';
   static CLIENT_WISH = clientApiPath + '/wishes';
   static CLIENT_PREORDER = clientApiPath + '/preorders';
-  static CLIENT_REVIEW = clientApiPath + '/reviews';
-  static CLIENT_REVIEW_PRODUCT = ResourceURL.CLIENT_REVIEW + '/products';
   static CLIENT_NOTIFICATION = clientApiPath + '/notifications';
   static CLIENT_NOTIFICATION_INIT_EVENTS = ResourceURL.CLIENT_NOTIFICATION + '/init-events';
   static CLIENT_NOTIFICATION_EVENTS = ResourceURL.CLIENT_NOTIFICATION + '/events';

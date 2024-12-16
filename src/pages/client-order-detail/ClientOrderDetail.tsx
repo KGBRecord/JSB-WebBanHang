@@ -26,8 +26,6 @@ import { useMutation, useQuery, useQueryClient } from 'react-query';
 import {
   ClientOrderDetailResponse,
   ClientOrderVariantResponse,
-  ClientReviewRequest,
-  ClientReviewResponse,
   ClientWaybillLogResponse,
   Empty
 } from 'types';
@@ -301,7 +299,6 @@ function ClientOrderDetail() {
                     <OrderItemTableRow
                       key={orderItem.orderItemVariant.variantId}
                       orderItem={orderItem}
-                      canReview={order.orderStatus === 4 && order.orderPaymentStatus === 2}
                     />
                   ))}
               </tbody>
@@ -395,21 +392,10 @@ function ClientOrderDetail() {
   );
 }
 
-function OrderItemTableRow({ orderItem, canReview }: { orderItem: ClientOrderVariantResponse, canReview: boolean }) {
+function OrderItemTableRow({ orderItem }: { orderItem: ClientOrderVariantResponse}) {
   const theme = useMantineTheme();
   const modals = useModals();
 
-  const handleOpenReviewModalButton = () => {
-    modals.openModal({
-      size: 'lg',
-      overlayColor: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2],
-      overlayOpacity: 0.55,
-      overlayBlur: 3,
-      closeOnClickOutside: false,
-      title: <strong>Đánh giá sản phẩm</strong>,
-      children: <ReviewProductModal orderItem={orderItem}/>,
-    });
-  };
 
   return (
     <tr key={orderItem.orderItemVariant.variantId}>
@@ -439,20 +425,6 @@ function OrderItemTableRow({ orderItem, canReview }: { orderItem: ClientOrderVar
                 ))}
               </Stack>
             )}
-            {canReview && (
-              <Button
-                size="xs"
-                radius="md"
-                variant="outline"
-                mt={5}
-                sx={{ width: 'fit-content' }}
-                onClick={handleOpenReviewModalButton}
-                disabled={orderItem.orderItemVariant.variantProduct.productIsReviewed}
-                title={orderItem.orderItemVariant.variantProduct.productIsReviewed ? 'Sản phẩm đã được bạn đánh giá' : ''}
-              >
-                Đánh giá
-              </Button>
-            )}
           </Stack>
         </Group>
       </td>
@@ -481,92 +453,6 @@ function OrderItemTableRow({ orderItem, canReview }: { orderItem: ClientOrderVar
   );
 }
 
-const ratingNameMap: Record<number, string> = {
-  1: 'Rất không hài lòng',
-  2: 'Không hài lòng',
-  3: 'Bình thường',
-  4: 'Hài lòng',
-  5: 'Cực kỳ hài lòng',
-};
-
-function ReviewProductModal({ orderItem }: { orderItem: ClientOrderVariantResponse }) {
-  const modals = useModals();
-
-  const { user } = useAuthStore();
-
-  const form = useForm({
-    initialValues: {
-      rating: 5,
-      review: '',
-    },
-    schema: zodResolver(z.object({
-      rating: z.number().min(1).max(5),
-      review: z.string().min(3, { message: 'Vui lòng nhập ít nhất 3 ký tự' }),
-    })),
-  });
-
-  const createReviewApi = useCreateReviewApi();
-
-  const handleFormSubmit = form.onSubmit((formValues) => {
-    if (user) {
-      const reviewRequest: ClientReviewRequest = {
-        userId: user.id,
-        productId: orderItem.orderItemVariant.variantProduct.productId,
-        ratingScore: formValues.rating,
-        content: formValues.review,
-        status: 1,
-      };
-      createReviewApi.mutate(reviewRequest);
-      modals.closeAll();
-    }
-  });
-
-  return (
-    <Stack>
-      <Group spacing="xs">
-        <Image
-          radius="md"
-          width={40}
-          height={40}
-          src={orderItem.orderItemVariant.variantProduct.productThumbnail || undefined}
-          alt={orderItem.orderItemVariant.variantProduct.productName}
-        />
-        <Text size="sm">
-          {orderItem.orderItemVariant.variantProduct.productName}
-        </Text>
-      </Group>
-
-      <Stack spacing="xs" align="center" mb="md">
-        <Text size="lg" weight={500}>Vui lòng đánh giá</Text>
-        <Rating
-          style={{ maxWidth: 180 }}
-          {...form.getInputProps('rating')}
-          isRequired
-        />
-        <Text size="sm" color="dimmed">{ratingNameMap[form.values.rating]}</Text>
-      </Stack>
-
-      <Textarea
-        required
-        data-autofocus
-        placeholder="Hãy chia sẻ cảm nhận, đánh giá của bạn về sản phẩm này nhé."
-        autosize
-        minRows={4}
-        radius="md"
-        {...form.getInputProps('review')}
-      />
-
-      <Group position="right">
-        <Button variant="default" radius="md" onClick={modals.closeAll}>
-          Đóng
-        </Button>
-        <Button type="submit" radius="md" onClick={handleFormSubmit}>
-          Gửi đánh giá
-        </Button>
-      </Group>
-    </Stack>
-  );
-}
 
 function useGetOrderApi(orderCode: string) {
   const {
@@ -600,27 +486,5 @@ function useCancelOrderApi(orderCode: string) {
   );
 }
 
-function useCreateReviewApi() {
-  const queryClient = useQueryClient();
-
-  return useMutation<ClientReviewResponse, ErrorMessage, ClientReviewRequest>(
-    (requestBody) => FetchUtils.postWithToken(ResourceURL.CLIENT_REVIEW, requestBody),
-    {
-      onSuccess: (response) => {
-        NotifyUtils.simpleSuccess(
-          <Text inherit>
-            <span>Đã thêm đánh giá cho sản phẩm </span>
-            <Anchor component={Link} to={'/product/' + response.reviewProduct.productSlug} inherit>
-              {response.reviewProduct.productName}
-            </Anchor>
-            <span>. Vui lòng đợi duyệt để hiển thị.</span>
-          </Text>
-        );
-        void queryClient.invalidateQueries(['client-api', 'orders', 'getOrder']);
-      },
-      onError: () => NotifyUtils.simpleFailed('Không thêm được đánh giá cho sản phẩm'),
-    }
-  );
-}
 
 export default ClientOrderDetail;

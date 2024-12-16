@@ -61,7 +61,6 @@ import ClientProductCard from 'components/ClientProductCard/ClientProductCard';
 import ClientError from 'components/ClientError/ClientError';
 import ProtectedRoute from 'components/ProtectedRoute/ProtectedRoute';
 import ClientUserNavbar from 'components/ClientUserNavbar/ClientUserNavbar';
-import ReviewStarGroup from 'components/ReviewStarGroup/ReviewStarGroup';
 
 export {
   CreateUpdateTitle,
@@ -117,5 +116,4 @@ export {
   ClientError,
   ProtectedRoute,
   ClientUserNavbar,
-  ReviewStarGroup,
 };

@@ -275,13 +275,7 @@ function ClientHeader() {
                     >
                       Thiết đặt
                     </Menu.Item>
-                    <Menu.Item
-                      icon={<Star size={14} />}
-                      component={Link}
-                      to="/user/review"
-                    >
-                      Đánh giá sản phẩm
-                    </Menu.Item>
+                
                     <Menu.Item
                       icon={<Heart size={14} />}
                       component={Link}

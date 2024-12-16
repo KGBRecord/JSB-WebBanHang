@@ -8,7 +8,6 @@ export interface StatisticResponse {
   totalProduct: number;
   totalOrder: number;
   totalWaybill: number;
-  totalReview: number;
   totalActivePromotion: number;
   totalSupplier: number;
   totalBrand: number;

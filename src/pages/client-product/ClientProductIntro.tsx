@@ -19,7 +19,7 @@ import {
 } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import MiscUtils from 'utils/MiscUtils';
-import { ClientCarousel, ReviewStarGroup } from 'components';
+import { ClientCarousel } from 'components';
 import { BellPlus, Heart, PhotoOff, ShoppingCart } from 'tabler-icons-react';
 import React, { useRef, useState } from 'react';
 import {
@@ -174,17 +174,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
                 <Text sx={{ fontSize: 26 }} weight={500}>
                   {product.productName}
                 </Text>
-                <Group mt={7.5} spacing="lg">
-                  <Group spacing="xs">
-                    <ReviewStarGroup ratingScore={product.productAverageRatingScore}/>
-                    <Text size="sm">{product.productCountReviews} đánh giá</Text>
-                  </Group>
-                  {/* TODO: Doanh số sản phẩm */}
-                  {/*<Group spacing={5}>*/}
-                  {/*  <ShoppingCart size={18} strokeWidth={1.5} color={theme.colors.teal[7]}/>*/}
-                  {/*  <Text size="sm" color="teal">120 đã mua</Text>*/}
-                  {/*</Group>*/}
-                </Group>
+                
               </Stack>
 
               {product.productShortDescription && <Text color="dimmed">{product.productShortDescription}</Text>}

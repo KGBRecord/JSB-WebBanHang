@@ -155,10 +155,6 @@ const notificationIconMap: Record<NotificationType, NotificationFigure> = {
     icon: Alarm,
     color: 'teal',
   },
-  [NotificationType.REVIEW]: {
-    icon: Message,
-    color: 'violet',
-  },
   [NotificationType.ORDER]: {
     icon: FileBarcode,
     color: 'indigo',

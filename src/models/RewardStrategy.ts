@@ -2,7 +2,6 @@ import BaseResponse from 'models/BaseResponse';
 
 export enum RewardType {
   SUCCESS_ORDER = 'SUCCESS_ORDER',
-  ADD_REVIEW = 'ADD_REVIEW'
 }
 
 export interface RewardStrategyResponse extends BaseResponse {
