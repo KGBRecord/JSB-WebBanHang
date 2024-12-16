@@ -18,7 +18,6 @@ const titles: Record<string, string> = {
   // '/user/chat': 'Yêu cầu tư vấn',
   '/payment/success': 'Thanh toán thành công',
   '/payment/cancel': 'Hủy thanh toán',
-  '/user/reward': 'Điểm thưởng',
   '/signup': 'Đăng ký',
   '/forgot': 'Yêu cầu cấp lại mật khẩu',
 

@@ -76,8 +76,6 @@ import { StompSessionProvider } from 'react-stomp-hooks';
 import ApplicationConstants from 'constants/ApplicationConstants';
 import AdminNotification from 'pages/admin-notification';
 import AdminAccount from 'pages/admin-account';
-import RewardManage from 'pages/reward-strategy';
-import ClientReward from 'pages/client-reward';
 import ClientSignup from 'pages/client-signup';
 import ClientForgotPassword, { ClientChangePassword } from 'pages/client-forgot-password';
 
@@ -171,11 +169,6 @@ function App() {
                       </StompSessionProvider>
                     </ProtectedRoute>
                   )}/> */}
-                  <Route path="/user/reward" element={(
-                    <ProtectedRoute>
-                      <ClientReward/>
-                    </ProtectedRoute>
-                  )}/>
                   <Route path="/signup" element={<ClientSignup/>}/>
                   <Route path="/forgot" element={<ClientForgotPassword/>}/>
                   <Route path="/change-password" element={<ClientChangePassword/>}/>
@@ -349,8 +342,6 @@ function App() {
                   <Route path={ManagerPath.NOTIFICATION} element={<AdminNotification/>}/>
                   {/* ACCOUNT */}
                   <Route path={ManagerPath.ACCOUNT} element={<AdminAccount/>}/>
-                  {/* REWARD */}
-                  <Route path={ManagerPath.REWARD_STRATEGY} element={<RewardManage/>}/>
                 </Route>
               </Routes>
             </ModalsProvider>

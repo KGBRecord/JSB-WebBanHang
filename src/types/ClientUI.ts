@@ -6,7 +6,6 @@ import { SpecificationItem } from 'models/Product';
 import { PaymentMethodType } from 'models/PaymentMethod';
 import { RoomResponse } from 'models/Room';
 import { MessageResponse } from 'models/Message';
-import { RewardType } from 'models/RewardStrategy';
 
 // CATEGORY
 
@@ -319,21 +318,6 @@ export interface ClientConfirmedOrderResponse {
   orderCode: string;
   orderPaymentMethodType: PaymentMethodType;
   orderPaypalCheckoutLink: string | null;
-}
-
-// REWARD
-
-export interface ClientRewardLogResponse {
-  rewardLogId: number;
-  rewardLogCreatedAt: string;
-  rewardLogScore: number;
-  rewardLogType: RewardType;
-  rewardLogNote: string;
-}
-
-export interface ClientRewardResponse {
-  rewardTotalScore: number;
-  rewardLogs: ClientRewardLogResponse[];
 }
 
 // REGISTRATION

@@ -284,13 +284,6 @@ function ClientHeader() {
                       Sản phẩm yêu thích
                     </Menu.Item>
                     <Menu.Item
-                      icon={<Award size={14} />}
-                      component={Link}
-                      to="/user/reward"
-                    >
-                      Điểm thưởng
-                    </Menu.Item>
-                    <Menu.Item
                       icon={<Alarm size={14} />}
                       component={Link}
                       to="/user/preorder"

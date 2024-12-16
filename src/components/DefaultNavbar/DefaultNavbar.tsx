@@ -228,13 +228,6 @@ const navbarLinks: NavbarLink[] = [
     childLinks: [],
   },
   {
-    link: '/admin/reward-strategy',
-    label: 'Điểm thưởng',
-    icon: Award,
-    childLinks: [],
-    disableForEmployee: true,
-  },
-  {
     link: '/admin/payment-method',
     label: 'Hình thức thanh toán',
     icon: CurrencyDollar,

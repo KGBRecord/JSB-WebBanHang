@@ -29,7 +29,6 @@ function ClientUserNavbar() {
       {navButton('Thông báo', '/user/notification', Bell)}
       {navButton('Quản lý đơn hàng', '/order', FileBarcode, ['/order/detail'])}
       {navButton('Sản phẩm yêu thích', '/user/wishlist', Heart)}
-      {navButton('Điểm thưởng', '/user/reward', Award)}
       {/* {navButton('Đặt trước sản phẩm', '/user/preorder', Alarm)} */}
       {/* {navButton('Yêu cầu tư vấn', '/user/chat', MessageCircle)} */}
     </Stack>

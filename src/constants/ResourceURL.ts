@@ -57,8 +57,6 @@ class ResourceURL {
 
   static WAYBILL = apiPath + '/waybills';
 
-  static REWARD_STRATEGY = apiPath + '/reward-strategies';
-
   static VOUCHER = apiPath + '/vouchers';
   static PAYMENT_METHOD = apiPath + '/payment-methods';
   static PROMOTION = apiPath + '/promotions';
@@ -90,7 +88,6 @@ class ResourceURL {
   static CLIENT_CHAT = clientApiPath + '/chat';
   static CLIENT_CHAT_GET_ROOM = ResourceURL.CLIENT_CHAT + '/get-room';
   static CLIENT_CHAT_CREATE_ROOM = ResourceURL.CLIENT_CHAT + '/create-room';
-  static CLIENT_REWARD = clientApiPath + '/rewards';
 
   // AUTHENTICATION
   static LOGIN = apiPath + '/auth/login';
