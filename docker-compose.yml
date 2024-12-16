@@ -1,0 +1,13 @@
+services:
+  jsbwbh-react:
+    image: jsbwbh-react
+    build: .
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - jsb
+networks:
+  jsb:
+    name: jsb
+    external: true

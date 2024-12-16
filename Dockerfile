@@ -1,7 +1,20 @@
-FROM nginx:1.17-alpine
 
-COPY nginx.conf /etc/nginx/nginx.conf
+FROM node:lts-iron
 
-WORKDIR /usr/share/nginx/html
 
-ADD build /usr/share/nginx/html
+WORKDIR /app
+
+
+COPY package*.json ./
+
+
+RUN npm install
+
+
+COPY . .
+
+
+EXPOSE 3000
+
+
+CMD ["npm", "start"]
