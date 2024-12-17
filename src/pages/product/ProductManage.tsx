@@ -73,7 +73,7 @@ function ProductManage() {
           {entity.category?.name || ''}
         </Highlight>
       </td>
-      <td>
+      {/* <td>
         <Stack spacing="xs" align="flex-start">
           {entity.tags
             .sort((a, b) => a.name.localeCompare(b.name))
@@ -98,7 +98,7 @@ function ProductManage() {
             </Badge>
           )}
         </Stack>
-      </td>
+      </td> */}
       <td>
         <VariantTablePopover variants={entity.variants} productProperties={entity.properties}/>
       </td>
@@ -193,7 +193,7 @@ function ProductManage() {
         <td>{ProductConfigs.properties['unit.name'].label}</td>
         <td>{entity.unit?.name}</td>
       </tr>
-      <tr>
+      {/* <tr>
         <td>{ProductConfigs.properties.tags.label}</td>
         <td style={{ maxWidth: 300 }}>
           <Group spacing="xs">
@@ -211,7 +211,7 @@ function ProductManage() {
               ))}
           </Group>
         </td>
-      </tr>
+      </tr> */}
       <tr>
         <td>{ProductConfigs.properties.specifications.label}</td>
         <td style={{ maxWidth: 300 }}>
@@ -265,10 +265,10 @@ function ProductManage() {
         <td>{ProductConfigs.properties.variants.label}</td>
         <td>{entity.variants.length === 0 ? <em>không có</em> : entity.variants.length + ' phiên bản'}</td>
       </tr>
-      <tr>
+      {/* <tr>
         <td>{ProductConfigs.properties.weight.label}</td>
         <td>{entity.weight ? entity.weight + ' g' : ''}</td>
-      </tr>
+      </tr> */}
       <tr>
         <td>{ProductConfigs.properties['guarantee.name'].label}</td>
         <td>{entity.guarantee?.name}</td>

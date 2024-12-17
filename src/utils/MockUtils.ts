@@ -4,35 +4,35 @@ import { MessageResponse } from 'models/Message';
 class MockUtils {
   static featuredCategories: ClientCategoryResponse[] = [
     {
-      categoryName: 'Ấm Trà Đơn',
-      categorySlug: 'am-tra-don',
+      categoryName: 'Laptop',
+      categorySlug: 'laptop',
       categoryChildren: [],
     },
     {
-      categoryName: 'Bộ Ấm Chén Trà Du Lịch',
-      categorySlug: 'bo-am-chen-tra-du-lich',
+      categoryName: 'PC',
+      categorySlug: 'pc',
       categoryChildren: [],
     },
     {
-      categoryName: 'Dụng Cụ Pha Trà',
-      categorySlug: 'bep-dien-va-dung-cu-pha-tra',
+      categoryName: 'Loa',
+      categorySlug: 'loa',
       categoryChildren: [],
     },
-    {
-      categoryName: 'Tượng Và Đồ Phong Thủy',
-      categorySlug: 'tuong-va-do-phong-thuy',
-      categoryChildren: [],
-    },
-    {
-      categoryName: 'Ấm Chén Phun Phụ Kiện',
-      categorySlug: 'bo-am-chen-full-phu-kien',
-      categoryChildren: [],
-    },
-    {
-      categoryName: 'Trà Hảo Hạng',
-      categorySlug: 'tra-hao-hang',
-      categoryChildren: [],
-    },
+    // {
+    //   categoryName: 'Tượng Và Đồ Phong Thủy',
+    //   categorySlug: 'tuong-va-do-phong-thuy',
+    //   categoryChildren: [],
+    // },
+    // {
+    //   categoryName: 'Ấm Chén Phun Phụ Kiện',
+    //   categorySlug: 'bo-am-chen-full-phu-kien',
+    //   categoryChildren: [],
+    // },
+    // {
+    //   categoryName: 'Trà Hảo Hạng',
+    //   categorySlug: 'tra-hao-hang',
+    //   categoryChildren: [],
+    // },
     //,
     // {
     //   categoryName: 'PC',

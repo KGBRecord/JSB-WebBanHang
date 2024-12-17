@@ -147,10 +147,10 @@ const navbarLinks: NavbarLink[] = [
         link: '/admin/product/unit',
         label: 'Đơn vị tính',
       },
-      {
-        link: '/admin/product/tag',
-        label: 'Tag',
-      },
+      // {
+      //   link: '/admin/product/tag',
+      //   label: 'Tag',
+      // },
       // {
       //   link: '/admin/product/guarantee',
       //   label: 'Bảo hành',

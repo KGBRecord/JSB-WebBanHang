@@ -114,13 +114,13 @@ class ProductConfigs extends Configs {
       label: 'Tên đơn vị tính',
       type: EntityPropertyType.STRING,
     },
-    tags: {
-      label: 'Danh sách tag',
-      type: EntityPropertyType.ARRAY,
-      isShowInTable: true,
-      isNotAddToSortCriteria: true,
-      isNotAddToFilterCriteria: true,
-    },
+    // tags: {
+    //   label: 'Danh sách tag',
+    //   type: EntityPropertyType.ARRAY,
+    //   isShowInTable: true,
+    //   isNotAddToSortCriteria: true,
+    //   isNotAddToFilterCriteria: true,
+    // },
     specifications: {
       label: 'Thông số sản phẩm',
       type: EntityPropertyType.COLLECTION,

@@ -154,7 +154,7 @@ function ClientFooter() {
         </Grid>
         <Group className={classes.afterFooter} position="apart">
           <Text color="dimmed" size="sm">
-            © 2024 PhucAnhDuong Corporation. Bảo lưu mọi quyền.
+            © 2024 TrunghieuBlue Corporation. Bảo lưu mọi quyền.
           </Text>
           <Group spacing="xs">
             <Anchor href="https://visa.com" target="_blank" rel="noopener noreferrer">

@@ -214,7 +214,7 @@ function ProductUpdate() {
                   {...form.getInputProps('unitId')}
                 />
               </Grid.Col>
-              <Grid.Col>
+              {/* <Grid.Col>
                 <MultiSelect
                   label={ProductConfigs.properties.tags.label}
                   placeholder="--"
@@ -225,7 +225,7 @@ function ProductUpdate() {
                   getCreateLabel={(tagName) => `+ Tạo tag ${tagName}`}
                   {...form.getInputProps('tags')}
                 />
-              </Grid.Col>
+              </Grid.Col> */}
               <Grid.Col xs={6}>
                 <Select
                   min={0}
