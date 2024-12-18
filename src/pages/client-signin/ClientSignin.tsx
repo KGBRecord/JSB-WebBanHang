@@ -33,7 +33,7 @@ const useStyles = createStyles((theme) => ({
     minHeight: 600,
     backgroundSize: 'cover',
     backgroundImage:
-      'url(https://bizweb.dktcdn.net/100/430/027/articles/tra-dao-1.jpg?v=1625217068023)',
+      'url(https://gamek.mediacdn.vn/133514250583805952/2023/4/14/0-16814458174881819454039-1681445972624-16814459733421997445851-1681466343170-16814663435361591888352.png)',
     backgroundPosition: 'bottom',
 
     [theme.fn.smallerThan('sm')]: {

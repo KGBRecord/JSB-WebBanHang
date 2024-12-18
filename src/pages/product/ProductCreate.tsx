@@ -196,7 +196,7 @@ function ProductCreate() {
                   {...form.getInputProps('unitId')}
                 />
               </Grid.Col>
-              <Grid.Col>
+              {/* <Grid.Col>
                 <MultiSelect
                   label={ProductConfigs.properties.tags.label}
                   placeholder="--"
@@ -207,7 +207,7 @@ function ProductCreate() {
                   getCreateLabel={(tagName) => `+ Tạo tag ${tagName}`}
                   {...form.getInputProps('tags')}
                 />
-              </Grid.Col>
+              </Grid.Col> */}
               {/* <Grid.Col xs={6}>
                 <NumberInput
                   precision={2}
